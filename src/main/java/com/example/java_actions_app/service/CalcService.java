@@ -20,14 +20,19 @@ public class CalcService {
     public int execute(int value1, int value2, String operator) {
         switch (operator) {
             case "+":
+
                 return value1 + value2;
+
             case "-":
+
                 return value1 - value2;
             case "*":
+
                 return value1 * value2;
             case "/":
+
                 if (value2 == 0) {
-                    throw new IllegalArgumentException("ゼロで割ることはできません");
+                         throw new IllegalArgumentException("ゼロで割ることはできません");
                 }
                 return value1 / value2;
             default:

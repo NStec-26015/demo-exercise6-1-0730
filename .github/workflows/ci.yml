@@ -20,6 +20,18 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
         cache: 'gradle'
+        
+    # ここから追加 ---
+    - name: コードフォーマットの検証 (Lint)
+      run: |
+        chmod +x gradlew
+        ./gradlew spotlessCheck
+    # --- ここまで
+
+    - name: プロジェクトのビルド
+      run: |
+        chmod +x gradlew
+        ./gradlew build -x test
 
     - name: Gradleによるビルド
       # gradlewに実行権限を付与してから実行
